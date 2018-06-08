@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>liqiang</groupId>
-  <artifactId>SSM-simple</artifactId>
+  <artifactId>SSM-sample</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
