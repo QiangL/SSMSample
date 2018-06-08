@@ -20,6 +20,6 @@ public class TestController {
 
     @RequestMapping("/")
     public List<User> listAll(){
-        return userMapper.listUser();
+        return userMapper.selectAll();
     }
 }

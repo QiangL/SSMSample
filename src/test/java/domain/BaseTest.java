@@ -21,6 +21,6 @@ public class BaseTest {
 
     @Test
     public void test() {
-        System.out.println(userMapper.listUser());
+        System.out.println(userMapper.selectAll());
     }
 }

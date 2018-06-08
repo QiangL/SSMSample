@@ -7,7 +7,6 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="web"/>
-    <context:component-scan base-package="service"/>
 
     <jdbc:embedded-database id="dataSource" type="H2">
         <jdbc:script location="classpath:sql/sql-schem.sql"/>
@@ -21,7 +20,7 @@
         <property name="mapperLocations" value="classpath:domain/mapper/*.xml"/>
     </bean>
 
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="domain.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
