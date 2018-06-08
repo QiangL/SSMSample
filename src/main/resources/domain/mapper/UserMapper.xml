@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="domain.module.User">
+        <id  column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="NVARCHAR" property="name"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+    </resultMap>
+    <sql id="allParam">
+        id,name,age
+    </sql>
+
+    <select id="findById" resultMap="BaseResultMap">
+        select
+          <include refid="allParam"/>
+        from user WHERE id=#{id}
+    </select>
+
+    <select id="listUser" resultMap="BaseResultMap">
+        select
+          <include refid="allParam"/>
+        from user
+    </select>
+
+    <insert id="save">
+        insert into user
+        (name,age) VALUES
+        (#{user.name},#{user.age})
+        <selectKey resultType="int" order="AFTER" keyColumn="id" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <delete id="delete">
+        delete from user
+        WHERE
+          id=#{user.id}
+        <if test="#{user.name} !=null">
+          and name=#{user.name}
+        </if>
+        <if test="#{user.age} !=null">
+          and age=#{user.age}
+        </if>
+    </delete>
+</mapper>
