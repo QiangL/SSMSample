@@ -11,7 +11,6 @@ import java.util.List;
  * @discription UserMapper
  * @date 2018-05-28
  **/
-@Repository
 public interface UserMapper {
 
     User findById(@Param("id") Integer id);
